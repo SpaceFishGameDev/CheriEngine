@@ -1,2 +1,1 @@
-# CheriEngine
-Engine made for game development
+# Cheri Engine docs:
