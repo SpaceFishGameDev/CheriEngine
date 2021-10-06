@@ -37,12 +37,14 @@ void Game::Init(const char* title, int x, int y, int width, int height, bool Ful
 		
 		if (renderer)
 		{
-			SDL_SetRenderDrawColor(renderer,200,220,200,255);
+			SDL_SetRenderDrawColor(renderer,200,190,255,255);
 			std::cout << "Renderer created..." << std::endl;
 		}
 
 		IsRunning = true;
 		SDL_Surface* tmpSurf = IMG_Load("D:/CheriEngine/CheriEngine/assets/Char.png");
+		player_tex = SDL_CreateTextureFromSurface(renderer,tmpSurf);
+		SDL_FreeSurface(tmpSurf);
 	}
 	else
 	{
@@ -72,6 +74,8 @@ void Game::Update()
 void Game::Render()
 {
 	SDL_RenderClear(renderer);
+
+	SDL_RenderCopy(renderer,player_tex,NULL,NULL);
 
 	SDL_RenderPresent(renderer);
 }
